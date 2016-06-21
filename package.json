@@ -1,0 +1,24 @@
+{
+  "name": "project-management-tool-redux",
+  "version": "0.1.0",
+  "description": "redux code for project management tool application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhay-Joshi-Git/projectManagementToolRedux.git"
+  },
+  "author": "Abhay Joshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhay-Joshi-Git/projectManagementToolRedux/issues"
+  },
+  "homepage": "https://github.com/Abhay-Joshi-Git/projectManagementToolRedux#readme",
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "lodash": "^4.13.1",
+    "redux": "^3.5.2"
+  }
+}
