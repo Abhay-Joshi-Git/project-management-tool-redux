@@ -1,2 +1,5 @@
-export * from './issues.js';
-export * from './sprints.js';
+import * as issues from './issues.js';
+import * as sprints from './sprints.js';
+
+export { issues } ;
+export { sprints } ;

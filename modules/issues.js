@@ -1,5 +1,5 @@
 import immutable from 'immutable';
-import mockAPIs from '../mocks/serverAPIs/issues.js';
+import * as mockIssuesAPIs from '../mocks/serverAPIs/issues.js';
 
 const LOAD = 'LOAD';
 
@@ -13,7 +13,7 @@ export const loadIssues = (payLoad) => {
 
 const initialState = immutable.List([]);
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case LOAD:
             return loadData(state, action.payLoad)
@@ -26,7 +26,10 @@ const loadData = (state, payLoad) => {
     const offset = payLoad.offset || 0;
     const qty = payLoad.qty || 25;
 
-    const data = mockAPIs.loadIssues(offset, qty);
+    const data = mockIssuesAPIs.loadIssues(offset, qty);
 
-    return state.push(immutable.List(data));
+    //ToDo : check for better option
+    const immutableData = data.map(item => {return immutable.Map(item)})
+
+    return state.push(...immutableData);
 }

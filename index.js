@@ -1,16 +1,19 @@
 import * as Redux from 'redux';
-import {reducer as issues} from './modules/issues.js';
-import {reducer as sprints} from './modules/sprints.js';
+import * as modules from './modules';
+import Immutable from 'immutable';
+import { combineReducers } from 'redux-immutablejs';
 
-export * as modules from './modules/';
+export { modules }
 
-const reducer = Redux.combineReducers({
-    issues,
-    sprints
+const reducer = combineReducers({
+    issues: modules.issues.reducer,
+    sprints: modules.sprints.reducer
 });
 
-const store = Redux.createStore(
-    reducer
-);
+const state = Immutable.fromJS({});
+const initialState = reducer(state);
 
-export default store;
+export default Redux.createStore(
+    reducer,
+    initialState
+);

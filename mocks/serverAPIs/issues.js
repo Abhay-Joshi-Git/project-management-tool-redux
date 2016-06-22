@@ -1,5 +1,5 @@
 import issuesData from '../data/issues.json';
 
 export const loadIssues = (offset, qty) => {
-    return JSON.parse(issuesData).slice(offset, offset + qty);
+    return issuesData.issues.slice(offset, offset + qty);
 }
