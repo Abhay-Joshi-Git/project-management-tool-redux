@@ -1,6 +1,6 @@
 import issuesData from '../data/issues.json';
 
-const issues = [...issuesData.issues];
+var issues = [...issuesData.issues];
 const originalDataLen = issuesData.issues.length;
 
 export const loadIssues = (offset, qty) => {
@@ -39,5 +39,7 @@ export const loadIssues = (offset, qty) => {
         return currItem;
     });
 
-    return newData.slice(newData.length - qty)
+    issues = [...issues, ...newData];
+
+    return issues.slice(offset, offset + qty)
 }
